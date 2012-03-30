@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>火雲工作室</title>
+<link rel="shortcut icon" href="image/icon.ico"/>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+/** 
+ * Slideshow style rules.
+ */
+#slideshow {
+	margin:0 auto;
+	width:780px;
+	height:393px;
+	position:relative;
+	top:-150px;
+	left:60px;
+	*left:80px;
+    *top:-245px;
+}
+
+#slideshow #slidesContainer {
+  margin:0 auto;
+  width:590px;
+ 
+  height:370px;
+  overflow:auto; /* allow scrollbar */
+  position:relative;
+}
+#slideshow #slidesContainer .slide {
+  margin:0 auto;
+  width:550px; /* reduce by 20 pixels of #slidesContainer to avoid horizontal scroll */
+  *width:500px;
+  height:370px;
+}
+
+/** 
+ * Slideshow controls style rules.
+ */
+.control {
+  display:block;
+  width:39px;
+  height:500px;
+  text-indent:-10000px;
+  position:absolute;
+  cursor: pointer;
+}
+#leftControl {
+  top:0;
+  left:0;
+  background:transparent url(image/control_left.png) no-repeat 0 0;
+}
+#rightControl {
+  top:0;
+  right:0;
+  background:transparent url(image/control_right.png) no-repeat 0 0;
+}
+
+/** 
+ * Style rules for Demo page
+ */
+
+
+.slide img {
+  float:right;
+  margin:0 15px;
+  *margin:0 5px;
+}
+
+.nav{
+display:none;
+}
+
+</style>
+
+<script type="text/javascript" src="script/jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('.nav').fadeIn(2000);
+
+  var currentPosition = 0;
+  var slideWidth = 600;
+  var slides = $('.slide');
+  var numberOfSlides = slides.length;
+
+  // Remove scrollbar in JS
+  $('#slidesContainer').css('overflow', 'hidden');
+
+  // Wrap all .slides with #slideInner div
+  slides
+    .wrapAll('<div id="slideInner"></div>')
+    // Float left to display horizontally, readjust .slides width
+	.css({
+      'float' : 'left',
+      'width' : slideWidth
+    });
+
+  // Set #slideInner width equal to total width of all slides
+  $('#slideInner').css('width', slideWidth * numberOfSlides);
+
+  // Insert controls in the DOM
+  $('#slideshow')
+    .prepend('<span class="control" id="leftControl">Clicking moves left</span>')
+    .append('<span class="control" id="rightControl">Clicking moves right</span>');
+
+  // Hide left arrow control on first load
+  manageControls(currentPosition);
+  manageLink(currentPosition);
+  
+  //点击左边的文字链接可使右边跳转到相应的图片
+ $('.link').bind('click', function(){
+   var i = $(this).attr('id');
+   currentPosition = parseInt(i);
+    manageControls(currentPosition);
+	manageLink(currentPosition);
+    // Move slideInner using margin-left
+    $('#slideInner').animate({
+      'marginLeft' : slideWidth*(-currentPosition)
+    });
+
+});
+
+  // Create event listeners for .controls clicks
+  $('.control')
+    .bind('click', function(){
+    // Determine new position
+	currentPosition = ($(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
+    
+	// Hide / show controls
+    manageControls(currentPosition);
+	manageLink(currentPosition);
+    // Move slideInner using margin-left
+    $('#slideInner').animate({
+      'marginLeft' : slideWidth*(-currentPosition)
+    });
+  });
+
+  // manageControls: Hides and Shows controls depending on currentPosition
+  function manageControls(position){
+    // Hide left arrow if position is first slide
+	if(position==0){ $('#leftControl').hide()
+	 } else{ $('#leftControl').show() }
+	// Hide right arrow if position is last slide
+    if(position==numberOfSlides-1){ $('#rightControl').hide() } else{ $('#rightControl').show() }
+	
+  }	
+  function manageLink(position){
+  $('#'+position).css('color','#c94d33');
+  
+  for(i = position-1; i >=0; i--){
+  $('#'+i).css('color','#b9b7b7');
+  }
+  for(i = position +1;i < numberOfSlides;i++){
+   $('#'+i).css('color','#b9b7b7');
+  }
+  
+/*  if(position == 0){
+  $('#link0').siblings().css("display",'none');
+   $('#link0').show();
+  }
+    if(position == 1){
+  $('#link0').css("display",'none');
+   $('#link1').show();
+  }*/
+  $('.'+position).show();
+  $('.'+position).siblings().hide();
+  }
+  
+   
+});
+</script>
+</head>
+
+<body  style="background-image:url(image/home.png);background-repeat:repeat-x;">
+<div class="wrap">
+
+<div class="home">
+<img  id="home1" src="image/logo.png" height="80" width="260"/>
+<img id="home2" src="image/home2.png" height="45" width="737"/>
+<img id="home3" src="image/wifi.png" height="45" width="40"/>
+<div class="nav">
+<a href="index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a><img  src="image/menu.png" height="20" width="160"/><br/>
+<a href="about.html">关&nbsp;&nbsp;&nbsp;&nbsp;于</a><img  src="image/menu.png" height="20" width="160"/>
+</div>
+</div>
+
+<div id="content">
+<div  id="con1" >
+<a  id="0" class="link" href="#">
+輕銀工藝
+</a>
+</div>
+<img id="dot1" src="image/dot4.png"/>
+<img id="dot2" src="image/dots.png"/>
+<img id="dot3" src="image/dot3.png"/>
+<img id="dot4" src="image/dot3.png"/>
+<img id="dot5" src="image/dot4.png"/>
+<div id="con2" >
+<a id="1" class="link" href="#">
+視覺中國
+</a>
+</div>
+</div>
+<img  id="project" src="image/project.png"/>
+
+ <div id="slideshow">
+    <div id="slidesContainer">
+      <div class="slide">
+        <p><a href="detail.html"><img title="点击查看关于本项目的更多内容" src="image/band1.png" /></a>
+      </div>
+     <div class="slide">
+        <p><a href="detail.html"><img title="点击查看关于本项目的更多内容" src="image/band2.jpg" /></a>
+      </div>
+     
+    </div>
+  </div>
+	
+ <div id="link">
+    <a  class="0" href="http://www.g-j.tw">
+輕銀珠寶 www.g-j.tw
+</a>
+    <a  class="1" href="http://www.g-j.tw">
+視覺中國 www.g-j.tw
+</a>
+    </div>
+    
+
+<div id="footer1">
+<img src="image/footer.png"/>
+</div>
+
+</div>
+</body>
+</html>

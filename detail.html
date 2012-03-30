@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>火雲工作室</title>
+<link rel="shortcut icon" href="image/icon.ico"/>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+	/* jQuery lightBox plugin - Gallery style */
+	#gallery {
+		background-color: #333333;
+		padding: 5px;
+		width: 900px;
+		height:155px;
+		position:relative;
+		top:20px;
+	}
+	#gallery ul { list-style: none; 
+	*position:relative;
+     *top:15px;
+	}
+	#gallery ul li { display: inline; }
+	#gallery ul img {
+		border: 1px solid #3e3e3e;
+		border-width: 1px 1px 2px;
+	}
+	#gallery ul a:hover img {
+		border: 1px solid #fff;
+		border-width: 5px 5px 10px;
+		color: #fff;
+	}
+	#gallery ul a:hover { color: #fff; }
+	
+	.nav{
+	display:none;
+	}
+	
+#detail{
+width:80%;
+margin:0 auto;
+position:relative;
+top:-30px;
+}
+
+#detail2{
+width:100%;
+margin:0 auto;
+position:relative;
+top:30px;
+}
+.tupianqu{
+width:850px;
+margin:auto;
+padding-top:20px;
+}
+
+.font1{
+position:relative;
+top:5px;
+left:50px;
+font-size:20px;
+}
+
+#footer3{
+width:640px;
+margin:auto;
+padding-top:50px;
+}
+</style>
+    <script type="text/javascript" src="script/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="script/jquery.lightbox-0.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen" />
+    <!-- / fim dos arquivos utilizados pelo jQuery lightBox plugin -->
+    
+    <!-- Ativando o jQuery lightBox plugin -->
+    <script type="text/javascript">
+    $(function() {
+	    $('.nav').fadeIn(2000);
+
+        $('.tupianqu li a').lightBox();
+		//$('#gallery a.lightbox').lightBox();  // class="lightbox" 
+    });
+    </script>
+</head>
+
+<body  style="background-image:url(image/home.png);background-repeat:repeat-x;">
+
+   <div class="home"> 
+       <img  id="home1" src="image/logo.png" height="80" width="260"/>
+       <img id="home2" src="image/home2.png" height="45" width="737"/> 
+       <img id="home3" src="image/wifi.png" height="45" width="40"/>
+  	<div class="nav"> <a href="index.html">首&nbsp;&nbsp;&nbsp;&nbsp;页</a><img  src="image/menu.png" height="20" width="160"/><br/>
+    <a href="about.html">关&nbsp;&nbsp;&nbsp;&nbsp;于</a><img  src="image/menu.png" height="20" width="160"/> </div>
+  </div>
+  
+  <div id="detail">
+
+
+ <div id="detail1">
+  <img id="tupian"  src="image/project.png"/> <br/>
+  <a  class="font1" href="http://www.g-j.tw"> 輕銀珠寶:</a>
+  <br/>
+        <div id="gallery" class="tupianqu">
+    <ul>
+        <li>
+            <a href="photos/image1.jpg">
+                <img src="photos/thumb_image1.jpg" title="点击查看大图" />
+            </a>
+        </li>
+          <li>
+            <a href="photos/image2.jpg"">
+                <img src="photos/thumb_image2.jpg" title="点击查看大图" />
+            </a>
+        </li>
+          <li>
+            <a href="photos/image3.jpg">
+                <img src="photos/thumb_image3.jpg" title="点击查看大图" />
+            </a>
+        </li>
+          <li>
+            <a href="photos/image4.jpg">
+                <img src="photos/thumb_image4.jpg" title="点击查看大图" />
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+  </div>
+  
+  <div id="detail2" >
+  <a  class="font1" href="http://www.g-j.tw"> 視覺中國:</a> 
+   <div id="gallery" class="tupianqu">
+    <ul>
+        <li>
+            <a href="photos/image5.jpg">
+                <img src="photos/thumb_image5.jpg" title="点击查看大图" />
+            </a>
+        </li>
+          <li>
+            <a href="photos/image8.jpg"">
+                <img src="photos/thumb_image8.jpg" title="点击查看大图" />
+            </a>
+        </li>
+          <li>
+            <a href="photos/image6.jpg">
+                <img src="photos/thumb_image6.jpg" title="点击查看大图" />
+            </a>
+        </li>
+          <li>
+            <a href="photos/image7.jpg">
+                <img src="photos/thumb_image7.jpg" title="点击查看大图" />
+            </a>
+        </li>
+        
+    </ul>
+</div>
+</div>
+  </div>
+  
+<div id="footer3""> <img src="image/footer.png"/> </div>
+
+<!--http://www.kaiwo123.com/js-flash/show_37/-->
+</body>
+</html>
